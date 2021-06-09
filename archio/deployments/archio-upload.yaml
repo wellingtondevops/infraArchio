@@ -19,9 +19,9 @@ spec:
       - image: wellingtondevops/dev-upload-bucket 
         name: archio-upload
         lifecycle:
-      postStart:
-        exec:
-          command: ["/bin/bash", "cp ./credentials.json" , "./credentials.json ."]
+          postStart:
+            exec:
+              command: ["/bin/bash", "cp ./credentials.json" , "./credentials.json ."]
         env:
         - name: APP_NAME
           value: uploadBucket
