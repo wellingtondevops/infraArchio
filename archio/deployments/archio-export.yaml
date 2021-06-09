@@ -19,5 +19,5 @@ spec:
       - image: wellingtondevops/archio-export   
         name: export-archio
         ports:
-        - containerPort: 80
+        - containerPort: 4000
           name: export-archio    

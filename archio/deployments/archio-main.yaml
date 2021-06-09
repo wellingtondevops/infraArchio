@@ -19,5 +19,5 @@ spec:
       - image: wellingtondevops/archio-main
         name: archio-main
         ports:
-        - containerPort: 80
+        - containerPort: 3000
           name: archio-main    
