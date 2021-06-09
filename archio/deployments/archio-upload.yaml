@@ -21,7 +21,10 @@ spec:
         lifecycle:
           postStart:
             exec:
-              command: ["/bin/bash", "cp ./credentials.json" , "./credentials.json ."]
+              command:
+                - /bin/sh
+                - -c
+                - cp /home/wellingtondevops/credentials.json /usr/src/app
         env:
         - name: APP_NAME
           value: uploadBucket
