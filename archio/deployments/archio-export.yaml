@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  labels:
+    app: export-archio
+  name: export-archio
+  namespace: backendarchio
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: export-archio
+  template:
+    metadata:
+      labels:
+        app: export-archio
+    spec:
+      containers:
+      - image: wellingtondevops/archio-export   
+        name: export-archio
+        ports:
+        - containerPort: 80
+          name: export-archio    

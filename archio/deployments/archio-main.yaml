@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  labels:
+    app: archio-main
+  name: archio-main
+  namespace: backendarchio
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: archio-main
+  template:
+    metadata:
+      labels:
+        app: archio-main
+    spec:
+      containers:
+      - image: wellingtondevops/archio-main
+        name: archio-main
+        ports:
+        - containerPort: 80
+          name: archio-main    
