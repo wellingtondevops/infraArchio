@@ -9,7 +9,7 @@ spec:
   type: LoadBalancer
   ports:
   - name: "export-archio-service"
-    port: 3000
+    port: 4000
     targetPort: 80    
   selector:
     app: export-archio
