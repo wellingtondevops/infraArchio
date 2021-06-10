@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  labels:
+    app: archio-import-volume
+  name: archio-import-volume
+  namespace: backendarchio
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: archio-import-volume
+  template:
+    metadata:
+      labels:
+        app: archio-import-volume
+    spec:
+      containers:
+      - image: wellingtondevops/dev-archio-import-volume:v2
+        name: archio-import-volume
+        ports:
+        - containerPort: 3002
+          name: archio-import-volume

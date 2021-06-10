@@ -17,14 +17,14 @@ spec:
     spec:
       containers:
       - image: wellingtondevops/dev-upload-bucket 
-        name: archio-upload
-        lifecycle:
-          postStart:
-            exec:
-              command:
-                - /bin/sh
-                - -c
-                - cp /home/wellingtondevops/credentials.json /usr/src/app
+        name: archio-upload   
+        volumeMounts:
+          - mountPath: /test-pd
+            name: credential
+      volumes:
+        - name: credential
+          hostPath:
+            path: /home/wellingtondevops/credentials           
         env:
         - name: APP_NAME
           value: uploadBucket
