@@ -15,6 +15,11 @@ spec:
       containers:
         - name: rabbitmq
           image: rabbitmq:3.8.3-management
+          env:
+          - name:  RABBITMQ_DEFAULT_USER
+            value: archio
+          - name: RABBITMQ_DEFAULT_PASS
+            value: archio            
           ports:
             - name: http
               protocol: TCP
