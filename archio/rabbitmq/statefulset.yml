@@ -24,7 +24,7 @@ spec:
             - name: http
               protocol: TCP
               containerPort: 15672
-            - name: http
+            - name: amqp
               protocol: TCP
               containerPort: 5672
           livenessProbe:
