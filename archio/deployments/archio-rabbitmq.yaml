@@ -24,9 +24,10 @@ spec:
         - name: RABBITMQ_DEFAULT_PASS
           value: archio
         ports:
-        - containerPort: 5673
-        - containerPort: 15673
+        - containerPort: 5673        
           name: rabbitmq
+        - containerPort: 15673
+          name: rabbitmq 
         volumeMounts:
         - mountPath: /var/lib/rabbitmq
           name: rabbitmq-data
