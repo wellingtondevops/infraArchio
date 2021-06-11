@@ -25,9 +25,8 @@ spec:
           value: archio
         ports:
         - containerPort: 5673        
-          name: rabbitmq
         - containerPort: 15673
-          name: rabbitmq 
+          name: rabbitmq
         volumeMounts:
         - mountPath: /var/lib/rabbitmq
           name: rabbitmq-data
