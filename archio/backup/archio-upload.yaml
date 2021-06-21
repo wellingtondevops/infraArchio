@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: archio-upload
+  name: archio-upload
+  namespace: backendarchio
+spec:
+  type: LoadBalancer
+  ports:
+  - name: "archio-upload-service"
+    port: 2000
+    targetPort: 2000    
+  selector:
+    app: archio-upload

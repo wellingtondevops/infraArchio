@@ -16,8 +16,8 @@ spec:
         app: export-archio
     spec:
       containers:
-      - image: wellingtondevops/archio-export
+      - image: archiocloud/develop:archio-exportsearch-v1
         name: export-archio
         ports:
-        - containerPort: 4000
+        - containerPort: 3003
           name: export-archio    

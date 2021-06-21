@@ -16,7 +16,7 @@ spec:
         app: archio-main
     spec:
       containers:
-      - image: wellingtondevops/dev-archio-main:v3
+      - image: archiocloud/develop:archio-main-v1
         name: archio-main
         ports:
         - containerPort: 3000
