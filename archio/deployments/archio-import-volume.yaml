@@ -16,7 +16,7 @@ spec:
         app: archio-imp-vol
     spec:
       containers:
-      - image: archiocloud/develop:archio-import-volume-v1
+      - image: archiocloud/develop-archio-import-volume:v1
         name: archio-imp-vol
         ports:
         - containerPort: 3002

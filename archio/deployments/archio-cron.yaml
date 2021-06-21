@@ -16,5 +16,5 @@ spec:
         app: cron-archio
     spec:
       containers:
-        - image: archiocloud/develop:archio-cron-v1
+        - image: archiocloud/develop-archio-cron:v1
           name: cron-archio

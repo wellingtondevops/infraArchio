@@ -16,7 +16,7 @@ spec:
         app: export-archio
     spec:
       containers:
-      - image: archiocloud/develop:archio-exportsearch-v1
+      - image: archiocloud/develop-archio-exportsearch:v1
         name: export-archio
         ports:
         - containerPort: 3003
