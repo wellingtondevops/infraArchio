@@ -15,8 +15,10 @@ spec:
       labels:
         app: export-archio
     spec:
+      imagePullSecrets:
+        - name: pullsecret
       containers:
-      - image: archiocloud/develop-archio-exportsearch:v1
+      - image: archiocloud/develop:archio-exportsearch-v1
         name: export-archio
         ports:
         - containerPort: 3003

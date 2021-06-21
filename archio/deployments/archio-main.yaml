@@ -15,8 +15,10 @@ spec:
       labels:
         app: archio-main
     spec:
+      imagePullSecrets:
+        - name: pullsecret
       containers:
-      - image: archiocloud/develop-archio-main:v1
+      - image: archiocloud/develop:archio-main-v5
         name: archio-main
         ports:
         - containerPort: 3000

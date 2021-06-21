@@ -15,8 +15,10 @@ spec:
       labels:
         app: archio-imp-vol
     spec:
+      imagePullSecrets:
+        - name: pullsecret
       containers:
-      - image: archiocloud/develop-archio-import-volume:v1
+      - image: archiocloud/develop:archio-import-volume-v9
         name: archio-imp-vol
         ports:
         - containerPort: 3002
