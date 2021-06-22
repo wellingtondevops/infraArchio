@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  labels:
+    app: archio-emailservice
+  name: emailservice
+  namespace: backendarchio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emailservice
+  template:
+    metadata:
+      labels:
+        app: emailservice
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+      - image: archiocloud/develop:archio-sendmail-V12
+        name: emailservice
+        ports:
+        - containerPort: 5000
+          name: emailservice  

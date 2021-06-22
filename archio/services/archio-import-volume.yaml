@@ -6,7 +6,7 @@ metadata:
   name: archio-imp-vol
   namespace: backendarchio
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: "archio-imp-vol-service"
     port: 3002
