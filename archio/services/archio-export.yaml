@@ -3,13 +3,12 @@ kind: Service
 metadata:
   labels:
     app: export-archio
-  name: export-archio
-  namespace: backendarchio
+  name: export-archio  
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: "export-archio-service"
-    port: 3003
+    port: 80
     targetPort: 3003    
   selector:
     app: export-archio

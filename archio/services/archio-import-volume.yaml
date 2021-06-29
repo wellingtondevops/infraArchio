@@ -3,8 +3,7 @@ kind: Service
 metadata:
   labels:
     app: archio-imp-vol
-  name: archio-imp-vol
-  namespace: backendarchio
+  name: archio-imp-vol  
 spec:
   type: ClusterIP
   ports:

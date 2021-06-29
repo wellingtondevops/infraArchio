@@ -3,10 +3,9 @@ kind: Deployment
 metadata:
   labels:
     app: archio-main
-  name: archio-main
-  namespace: backendarchio
+  name: archio-main  
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: archio-main

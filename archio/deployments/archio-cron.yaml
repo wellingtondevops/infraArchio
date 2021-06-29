@@ -3,10 +3,9 @@ kind: Deployment
 metadata:
   labels:
     app: cron-archio
-  name: cron-archio
-  namespace: backendarchio
+  name: cron-archio  
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: cron-archio
