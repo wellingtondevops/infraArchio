@@ -4,23 +4,28 @@ metadata:
   name: api-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec: 
+  tls:
+  - hosts:
+    - "cl.archio.com.br"
+    secretName: api-secret-prod
   rules:
-    - host: cluster.archio.com.br
+    - host: cl.archio.com.br
       http:
         paths:
         - path: /
           backend:
             serviceName: archio-main
             servicePort: 80
-    - host: cluster.archio.com.br
+    - host: cl.archio.com.br
       http:
         paths:
         - path: /export
           backend:
             serviceName: export-archio
             servicePort: 80  
-    - host: cluster.archio.com.br
+    - host: cl.archio.com.br
       http:
         paths:
         - path: /queues
