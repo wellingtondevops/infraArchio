@@ -3,32 +3,34 @@ kind: Ingress
 metadata:
   name: api-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec: 
   tls:
   - hosts:
     - "cl.archio.com.br"
+    - "export.archio.com.br"
+    - "queues.archio.com.br"
     secretName: api-secret-prod
-  rules:
+  rules: 
     - host: cl.archio.com.br
       http:
         paths:
-        - path: /
+        - path: /main/(.+)
           backend:
             serviceName: archio-main
             servicePort: 80
     - host: cl.archio.com.br
       http:
         paths:
-        - path: /export
+        - path: /exportarchives/(.+)
           backend:
             serviceName: export-archio
-            servicePort: 80  
-    - host: cl.archio.com.br
+            servicePort: 80              
+    - host: queues.archio.com.br
       http:
         paths:
-        - path: /queues
+        - path: /
           backend:
             serviceName: rabbitmq
             servicePort: 80                      

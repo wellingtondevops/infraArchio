@@ -5,7 +5,7 @@ metadata:
     app: archio-main
   name: archio-main  
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: archio-main
