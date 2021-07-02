@@ -19,6 +19,11 @@ spec:
       containers:
       - image: archiocloud/develop:archio-exportsearch-v1
         name: export-archio
+        # resources:
+        #   limits:
+        #     memory: 300Mi
+        #     cpu: 150m
         ports:
         - containerPort: 3003
-          name: export-archio    
+          name: export-archio 
+        

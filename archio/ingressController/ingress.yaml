@@ -8,8 +8,7 @@ metadata:
 spec: 
   tls:
   - hosts:
-    - "cl.archio.com.br"
-    - "export.archio.com.br"
+    - "cl.archio.com.br"    
     - "queues.archio.com.br"
     secretName: api-secret-prod
   rules: 

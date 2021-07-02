@@ -5,7 +5,7 @@ metadata:
     app: cron-archio
   name: cron-archio  
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: cron-archio
@@ -19,3 +19,8 @@ spec:
       containers:
         - image: archiocloud/develop:archio-cron-v1
           name: cron-archio
+          resources:
+            limits:
+              memory: 300Mi
+              cpu: 500m    
+          
