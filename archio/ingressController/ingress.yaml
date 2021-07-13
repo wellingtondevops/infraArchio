@@ -25,12 +25,13 @@ spec:
         - path: /exportarchives/(.+)
           backend:
             serviceName: export-archio
-            servicePort: 80              
+            servicePort: 80
     - host: queues.archio.com.br
       http:
         paths:
         - path: /
           backend:
             serviceName: rabbitmq
-            servicePort: 80                      
+            servicePort: 80     
+                             
         
