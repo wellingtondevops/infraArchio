@@ -9,13 +9,9 @@ spec:
   tls:
   - hosts:
     - "queues.archio.com.br"  
-    secretName: "queues-secret-prod"
-  - hosts:
-    - "archiomain.archio.com.br"  
-    secretName: "archiomain-secret-prod"  
-  - hosts:
-    - "exportarchives.archio.com.br"  
-    secretName: "exportarchives-secret-prod"    
+    - "archiomain.archio.com.br"
+    - "exportarchives.archio.com.br"
+    secretName: "api-secret-prod"
   rules:
   - host: queues.archio.com.br  
     http:
