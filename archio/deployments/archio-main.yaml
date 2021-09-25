@@ -5,7 +5,7 @@ metadata:
     app: archio-main
   name: archio-main  
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: archio-main
@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-main-v11
+      - image: archiocloud/develop:archio-main-v13
         name: archio-main        
         ports:
         - containerPort: 3000
