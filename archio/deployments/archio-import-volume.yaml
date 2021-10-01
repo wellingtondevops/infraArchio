@@ -5,7 +5,7 @@ metadata:
     app: archio-imp-vol
   name: archio-imp-vol  
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: archio-imp-vol
