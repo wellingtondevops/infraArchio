@@ -17,8 +17,6 @@ Implantar o controlador de entrada NGINX com o Helm
 
 6- echo $NGINX_INGRESS_IP  
 
-pausa.....continua...
-
 7 - Aplicar yaml ingress-controlller
 
 

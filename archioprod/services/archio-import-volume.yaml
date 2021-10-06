@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: archio-imp-vol
+  name: archio-imp-vol  
+spec:
+  type: ClusterIP
+  ports:
+  - name: "archio-imp-vol-service"
+    port: 3002
+    targetPort: 3002   
+  selector:
+    app: archio-imp-vol
