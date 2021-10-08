@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-import-archive-prod-v7
+      - image: archiocloud/develop:archio-import-archive-v6
         name: archio-imp-arc
         # resources:
         #   limits:
