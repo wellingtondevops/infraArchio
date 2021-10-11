@@ -20,7 +20,7 @@ spec:
     - "exportarchivesprod.archio.com.br"  
     secretName: "exportarchives-secret-prod"  
   - hosts:
-    - "muploadprod.archio.com.br"   
+    - "mupload.archio.com.br"   
     secretName: "mupload-secret-prod"       
   rules:
   - host: queuesprod.archio.com.br  
@@ -43,7 +43,7 @@ spec:
               name: archio-main
               port:
                 number: 80
-  - host: muploadprod.archio.com.br
+  - host: mupload.archio.com.br
     http:
       paths:
         - pathType: "Prefix"
