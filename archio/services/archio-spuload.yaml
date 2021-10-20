@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: archio-supload
+  name: archio-supload
+spec:
+  type: ClusterIP
+  ports:
+  - name: "archio-supload-service"
+    port: 80
+    targetPort: 2002    
+  selector:
+    app: archio-supload

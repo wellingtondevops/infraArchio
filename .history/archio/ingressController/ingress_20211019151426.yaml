@@ -24,7 +24,7 @@ spec:
     secretName: "mupload-secret-prod"   
   - hosts:
     - "smupload.archio.com.br"   
-    secretName: "smupload-secret-prod"     
+    secretName: "supload-secret-prod"     
   rules:
   - host: queues.archio.com.br  
     http:

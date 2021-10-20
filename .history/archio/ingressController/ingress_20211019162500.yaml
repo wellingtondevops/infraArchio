@@ -56,7 +56,7 @@ spec:
               name: archio-mupload
               port:
                 number: 80              
-  - host: smupload.archio.com.br
+  - host: suploadprod.archio.com.br
     http:
       paths:
         - pathType: "Prefix"

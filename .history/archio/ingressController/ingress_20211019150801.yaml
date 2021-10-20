@@ -23,8 +23,8 @@ spec:
     - "mupload.archio.com.br"   
     secretName: "mupload-secret-prod"   
   - hosts:
-    - "smupload.archio.com.br"   
-    secretName: "smupload-secret-prod"     
+    - "supload.archio.com.br"   
+    secretName: "mupload-secret-prod"     
   rules:
   - host: queues.archio.com.br  
     http:
@@ -56,14 +56,14 @@ spec:
               name: archio-mupload
               port:
                 number: 80              
-  - host: smupload.archio.com.br
+  - host: supload.archio.com.br
     http:
       paths:
         - pathType: "Prefix"
           path: "/"
           backend:
             service:
-              name: archio-supload
+              name: archio-mupload
               port:
                 number: 80                            
   - host: exportarchives.archio.com.br  
