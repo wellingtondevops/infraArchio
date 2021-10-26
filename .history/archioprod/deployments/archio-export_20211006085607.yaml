@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-exportsearch-v2
+      - image: archiocloud/develop:archio-exportsearch-prod-v1
         name: export-archio
         # resources:
         #   limits:
@@ -26,7 +26,4 @@ spec:
         ports:
         - containerPort: 3003
           name: export-archio 
-        envFrom:
-            - secretRef:
-                name: api-secret  
         

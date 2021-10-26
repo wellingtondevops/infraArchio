@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-sultupload-v4
+      - image: archiocloud/develop:archio-sultupload-v3
         name: archio-supload        
         ports:
         - containerPort: 2002

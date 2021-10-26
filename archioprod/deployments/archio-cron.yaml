@@ -17,8 +17,11 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:archio-cron-prod-v2
+        - image: archiocloud/develop:archio-cron-v2
           name: cron-archio
+          envFrom:
+            - secretRef:
+                name: api-secret
           resources:
             limits:
               memory: 300Mi

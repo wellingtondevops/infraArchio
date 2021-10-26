@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-import-volume-prod-v11
+      - image: archiocloud/develop:archio-import-volume-v12
         name: archio-imp-vol
         # resources:
         #   limits:
@@ -26,3 +26,6 @@ spec:
         ports:
         - containerPort: 3002
           name: archio-imp-vol
+        envFrom:
+            - secretRef:
+                name: api-secret  

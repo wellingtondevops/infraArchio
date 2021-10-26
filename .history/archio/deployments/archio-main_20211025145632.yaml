@@ -17,13 +17,12 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-main-v17.6
+      - image: archiocloud/develop:archio-main-v17.4
         name: archio-main        
         ports:
         - containerPort: 3000
           name: archio-main    
-        envFrom:
-            - secretRef:
-                name: api-secret
-          
+        env:
+          - name: DB_URL
+            value: mongodb://earchiveTester:cdh0tAYUFJXDMB3t@cluster0-shard-00-00-rr6sx.mongodb.net:27017/earchive?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin
             

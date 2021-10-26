@@ -24,6 +24,6 @@ spec:
           name: archio-main    
         envFrom:
             - secretRef:
-                name: api-secret
+                name: api-secrtet
           
             
