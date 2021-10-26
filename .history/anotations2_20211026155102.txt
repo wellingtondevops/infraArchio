@@ -15,9 +15,21 @@ Implantar o controlador de entrada NGINX com o Helm
 5- Exporte o EXTERNAL-IPdo controlador de entrada NGINX em uma variável para ser usada posteriormente:
     export NGINX_INGRESS_IP=$(kubectl get service nginx-ingress-ingress-nginx-controller -ojson | jq -r '.status.loadBalancer.ingress[].ip')
 
-6- echo $NGINX_INGRESS_IP    
+6- echo $NGINX_INGRESS_IP  
+
+pausa.....continua...
+
+7 - Aplicar yaml ingress-controlller
+
+
+8 -  instalar cert-manager -kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.5.3/cert-manager.yaml
 
 saida geral
+
+
+Duvidas --->
+
+https://www.youtube.com/watch?v=xWOEdO4tyHQ&t=2049s
 
 NAME: nginx-ingress
 LAST DEPLOYED: Thu Sep 23 10:56:39 2021
@@ -65,3 +77,7 @@ If TLS is enabled for the Ingress, a Secret containing the certificate and key m
     tls.crt: <base64 encoded cert>
     tls.key: <base64 encoded key>
   type: kubernetes.io/tls
+
+
+  Gerar opaque
+  echo -n 'SENHA URL O QUE VC QUER MASCARAR' | base64

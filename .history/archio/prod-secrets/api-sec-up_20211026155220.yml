@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-secret-upload
+type: Opaque
+data:
+  MONGO_URL: 'OPAQUE GERADO'
+
+

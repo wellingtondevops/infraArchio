@@ -77,3 +77,7 @@ If TLS is enabled for the Ingress, a Secret containing the certificate and key m
     tls.crt: <base64 encoded cert>
     tls.key: <base64 encoded key>
   type: kubernetes.io/tls
+
+
+  Gerar opaque
+  echo -n 'SENHA URL O QUE VC QUER MASCARAR' | base64
