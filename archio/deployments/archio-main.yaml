@@ -17,7 +17,8 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-main-v53
+      - image: archiocloud/develop:archio-main-v71
+      # - image: archiocloud/develop:archio-main-v53
         name: archio-main        
         ports:
         - containerPort: 3000

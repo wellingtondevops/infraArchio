@@ -5,7 +5,7 @@ metadata:
     app: process-archio-index
   name: process-archio-index  
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: process-archio-index
@@ -17,13 +17,13 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:process-index-v09
+        - image: archiocloud/develop:process-index-v11
           name: process-archio-index
           envFrom:
             - secretRef:
                 name: api-secret
-          resources:
-            limits:
-              memory: 300Mi
-              cpu: 500m    
+          # resources:
+          #   limits:
+          #     memory: 300Mi
+          #     cpu: 500m    
           
