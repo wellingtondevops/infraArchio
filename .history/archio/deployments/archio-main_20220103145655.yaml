@@ -19,7 +19,7 @@ spec:
       containers:
       # - image: archiocloud/develop:archio-main-v72 
       # - image: archiocloud/develop:archio-main-v79
-      - image: archiocloud/develop:archio-main-v82 
+      - image: archiocloud/develop:archio-main-v84
      
         name: archio-main        
         ports:
