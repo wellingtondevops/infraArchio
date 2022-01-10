@@ -5,7 +5,7 @@ metadata:
     app: archio-mupload
   name: archio-mupload 
 spec:
-  replicas: 2
+  replicas: 7
   selector:
     matchLabels:
       app: archio-mupload
@@ -17,8 +17,11 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-multupload-v10
+      - image: archiocloud/develop:archio-multupload-v13
         name: archio-mupload        
         ports:
         - containerPort: 2000
           name: archio-mupload
+        envFrom:
+            - secretRef:
+                name: api-secret-upload  

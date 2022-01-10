@@ -11,22 +11,22 @@ metadata:
 spec:
   tls:
   - hosts:
-    - "queues.archio.com.br"  
+    - "queuesprod.archio.com.br"  
     secretName: "queues-secret-prod"
   - hosts:
-    - "archiomain.archio.com.br"  
+    - "archiomainprod.archio.com.br"  
     secretName: "archiomain-secret-prod"  
   - hosts:
-    - "exportarchives.archio.com.br"  
+    - "exportarchivesprod.archio.com.br"  
     secretName: "exportarchives-secret-prod"   
   - hosts:
-    - "mupload.archio.com.br"   
+    - "muploadprod.archio.com.br"   
     secretName: "mupload-secret-prod"   
   - hosts:
-    - "supload.archio.com.br"   
-    secretName: "supload-secret-prod"     
+    - "smuploadprod.archio.com.br"   
+    secretName: "smupload-secret-prod"     
   rules:
-  - host: queues.archio.com.br  
+  - host: queuesprod.archio.com.br  
     http:
       paths:
         - pathType: "Prefix"
@@ -36,7 +36,7 @@ spec:
               name: rabbitmq
               port:
                 number: 80
-  - host: archiomain.archio.com.br  
+  - host: archiomainprod.archio.com.br  
     http:
       paths:
         - pathType: "Prefix"
@@ -46,7 +46,7 @@ spec:
               name: archio-main
               port:
                 number: 80
-  - host: mupload.archio.com.br
+  - host: muploadprod.archio.com.br
     http:
       paths:
         - pathType: "Prefix"
@@ -56,7 +56,7 @@ spec:
               name: archio-mupload
               port:
                 number: 80              
-  - host: supload.archio.com.br
+  - host: smuploadprod.archio.com.br
     http:
       paths:
         - pathType: "Prefix"
@@ -66,7 +66,7 @@ spec:
               name: archio-supload
               port:
                 number: 80                            
-  - host: exportarchives.archio.com.br  
+  - host: exportarchivesprod.archio.com.br  
     http:
       paths:
         - pathType: "Prefix"
