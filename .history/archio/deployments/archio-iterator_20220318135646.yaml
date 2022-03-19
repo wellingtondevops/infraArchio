@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis
+  name: archio-iterator
 spec:
   selector:
     matchLabels:
@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: redis
+        app: archio-iterator
     spec:
       # volumes:
       #   - name: host-sys
@@ -24,8 +24,8 @@ spec:
       #         mountPath: /host-sys
       #     command: ["sh", "-c", "echo never > /host-sys/kernel/mm/transparent_hugepage/enabled"]
       containers:
-      - name: redis
-        image: redis
+      - name: archio-iterator
+        image: archio-iterator
         imagePullPolicy: IfNotPresent
         # resources:
         #   requests:

@@ -5,7 +5,7 @@ metadata:
     app: archio-main
   name: archio-main  
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: archio-main
@@ -19,7 +19,7 @@ spec:
       containers:
       # - image: archiocloud/develop:archio-main-v72 
       # - image: archiocloud/develop:archio-main-v79
-      - image: archiocloud/develop:archio-main-v104
+      - image: archiocloud/develop:archio-main-v100
      
         name: archio-main        
         ports:
