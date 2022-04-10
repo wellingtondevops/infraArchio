@@ -20,8 +20,7 @@ spec:
       # - image: archiocloud/develop:archio-main-v72 
       # - image: archiocloud/develop:archio-main-v79
       # - image: archiocloud/develop:archio-main-v105 versao estavel
-      # - image: archiocloud/develop:archio-main-v121  # versao para teste pesquisa simples 1
-      - image: archiocloud/develop:archio-main-v122  # versao para testes relat'roio
+      - image: archiocloud/develop:archio-main-v106   # versao para teste pesquisa simples 1
      
         name: archio-main        
         ports:

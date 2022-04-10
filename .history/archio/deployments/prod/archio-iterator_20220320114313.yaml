@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: process-archio-index
-  name: process-archio-index  
+    app: archio-iterator
+  name: archio-iterator 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: process-archio-index
+      app: archio-iterator
   template:
     metadata:
       labels:
-        app: process-archio-index
+        app: archio-iterator
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:process-index-v11 #ok
-          name: process-archio-index
+        - image: archiocloud/develop:archio-iterator-v25
+          name: archio-iterator
           envFrom:
             - secretRef:
                 name: api-secret

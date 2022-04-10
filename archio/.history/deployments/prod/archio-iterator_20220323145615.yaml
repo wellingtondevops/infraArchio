@@ -2,31 +2,30 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   labels:
-    app: export-archio
-  name: export-archio  
+    app: archio-imp-archive
+  name: archio-imp-archive  
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: export-archio
+      app: archio-imp-arc
   template:
     metadata:
       labels:
-        app: export-archio
+        app: archio-imp-arc
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-exportsearch-v31 #ok
-        name: export-archio
+      - image: archiocloud/develop:archio-import-archive-v8
+        name: archio-imp-arc
         # resources:
         #   limits:
         #     memory: 300Mi
-        #     cpu: 150m
+        #     cpu: 150m 
         ports:
-        - containerPort: 3003
-          name: export-archio 
+        - containerPort: 3010
+          name: archio-imp-arc
         envFrom:
             - secretRef:
                 name: api-secret  
-        

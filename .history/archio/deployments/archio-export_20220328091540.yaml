@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-exportsearch-v31 #ok
+      - image: archiocloud/develop:archio-exportsearch-v6 #ok
         name: export-archio
         # resources:
         #   limits:
