@@ -5,7 +5,7 @@ metadata:
     app: archio-iterator
   name: archio-iterator 
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: archio-iterator
@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:archio-iterator-v300 ## tem q converter no qa versao esta inferior
+        - image: archiocloud/develop:archio-iterator-v510 ## tem q converter no qa versao esta inferior 316
           name: archio-iterator
           envFrom:
             - secretRef:

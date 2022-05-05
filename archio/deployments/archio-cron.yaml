@@ -18,7 +18,8 @@ spec:
         - name: pullsecret
       containers:
         # - image: archiocloud/develop:archio-cron-v6.1 versao estavel
-        - image: archiocloud/develop:archio-cron-v6.6 #ok
+        # - image: archiocloud/develop:archio-cron-v6.6 #ok
+        - image: archiocloud/develop:archio-cron-v7 #ok
           name: cron-archio
           envFrom:
             - secretRef:
