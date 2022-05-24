@@ -2,29 +2,27 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   labels:
-    app: archio-main
-  name: archio-main  
+    app: archio-image-functions
+  name: archio-image-functions
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: archio-main
+      app: archio-images
   template:
     metadata:
       labels:
-        app: archio-main
+        app: archio-images
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      # - image: archiocloud/develop:archio-main-v72 
-      # - image: archiocloud/develop:archio-main-v79
-      - image: archiocloud/develop:archio-main-v98
+      - image: archiocloud/develop:archio-images-v3  
      
-        name: archio-main        
+        name: archio-images
         ports:
-        - containerPort: 3000
-          name: archio-main    
+        - containerPort: 3004
+          name: archio-images
         envFrom:
             - secretRef:
                 name: api-secret
