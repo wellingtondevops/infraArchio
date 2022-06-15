@@ -5,7 +5,7 @@ metadata:
     app: archio-main
   name: archio-main  
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: archio-main
@@ -23,7 +23,11 @@ spec:
       # - image: archiocloud/develop:archio-main-v121  # versao para teste pesquisa simples 1
       # - image: archiocloud/develop:archio-main-v124  # versao para testes relat'roio estavel em producao
       # - image: archiocloud/develop:archio-main-v201  # versao para testes relat'roio
-      - image: archiocloud/develop:archio-main-v202
+      # - image: archiocloud/develop:archio-main-v202 estaval
+      # - image: archiocloud/develop:archio-main-v205 ultima estavel antes das atualizacoes de importacao
+      # - image: archiocloud/develop:archio-main-v216
+      - image: archiocloud/develop:archio-main-v220 
+      
      
         name: archio-main        
         ports:

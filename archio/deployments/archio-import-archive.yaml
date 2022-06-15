@@ -5,7 +5,7 @@ metadata:
     app: archio-imp-archive
   name: archio-imp-archive  
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: archio-imp-arc
@@ -17,7 +17,8 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-import-archive-v8 # ok
+      # - image: archiocloud/develop:archio-import-archive-v9 # ok
+      - image: archiocloud/develop:archio-import-archive-v36
         name: archio-imp-arc
         # resources:
         #   limits:

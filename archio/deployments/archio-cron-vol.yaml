@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cron-archio-vol
+  name: cron-archio-vol  
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cron-archio-vol
+  template:
+    metadata:
+      labels:
+        app: cron-archio-vol
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        # - image: archiocloud/develop:archio-cron-v6.1 versao estavel
+        # - image: archiocloud/develop:archio-cron-v6.6 #ok
+        - image: archiocloud/develop:archio-cron-vol-v02 #ok
+          name: cron-archio-vol
+          envFrom:
+            - secretRef:
+                name: api-secret
+          # resources:
+          #   limits:
+          #     memory: 300Mi
+          #     cpu: 500m    
+          
