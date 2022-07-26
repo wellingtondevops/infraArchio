@@ -19,7 +19,7 @@ spec:
       containers:
         # - image: archiocloud/develop:archio-iterator-v511
         # - image: archiocloud/develop:archio-iterator-v512 ## tem q converter no qa versao esta inferior 316
-        - image: archiocloud/develop:archio-iterator-v600 ## tem q converter no qa versao esta inferior 316
+        - image: archiocloud/develop:archio-iterator-v606 ## estavel
           name: archio-iterator
           envFrom:
             - secretRef:

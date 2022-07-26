@@ -2,24 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: cron-archio
-  name: cron-archio  
+    app: cron-reports
+  name: cron-reports
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cron-archio
+      app: cron-reports
   template:
     metadata:
       labels:
-        app: cron-archio
+        app: cron-reports
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        # - image: archiocloud/develop:archio-cron-v6.1 versao estavel
-        - image: archiocloud/develop:archio-cron-v6.3 #ok
-          name: cron-archio
+
+        - image: archiocloud/develop:archio-cron-v7 #ok
+          name: cron-reports
           envFrom:
             - secretRef:
                 name: api-secret

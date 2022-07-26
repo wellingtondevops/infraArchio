@@ -18,7 +18,8 @@ spec:
         - name: pullsecret
       containers:
       # - image: archiocloud/develop:archio-import-archive-v9 # ok
-      - image: archiocloud/develop:archio-import-archive-v36
+      # - image: archiocloud/develop:archio-import-archive-v36
+      - image: archiocloud/develop:archio-import-archive-v50 #versao experimental para biggestDate
         name: archio-imp-arc
         # resources:
         #   limits:

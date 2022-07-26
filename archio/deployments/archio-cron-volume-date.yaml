@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: archio-cron-volume-date
+  name: archio-cron-volume-date
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: archio-cron-volume-date
+  template:
+    metadata:
+      labels:
+        app: archio-cron-volume-date
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:archio-cron-volume-date-v02
+          name: archio-cron-volume-date
+          envFrom:
+            - secretRef:
+                name: api-secret
+          
