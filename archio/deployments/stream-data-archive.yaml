@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: archio-iterator
-  name: archio-iterator 
+    app: stream-data-archive
+  name: stream-data-archive
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: archio-iterator
+      app: stream-data-archive
   template:
     metadata:
       labels:
-        app: archio-iterator
+        app: stream-data-archive
     spec:
       imagePullSecrets:
         - name: pullsecret
@@ -20,7 +20,7 @@ spec:
         # - image: archiocloud/develop:archio-iterator-v511
         # - image: archiocloud/develop:archio-iterator-v512 ## tem q converter no qa versao esta inferior 316
         - image: archiocloud/develop:archio-iterator-v606 ## estavel
-          name: archio-iterator
+          name: stream-data-archive
           envFrom:
             - secretRef:
                 name: api-secret
