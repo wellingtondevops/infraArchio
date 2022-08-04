@@ -5,7 +5,7 @@ metadata:
     app: archio-main
   name: archio-main  
 spec:
-  replicas: 4
+  replicas: 5
   selector:
     matchLabels:
       app: archio-main
@@ -19,7 +19,7 @@ spec:
       containers:
       # - image: archiocloud/develop:archio-main-v310 # versao testes automoatioin docuemntos
       #- image: archiocloud/develop:archio-main-v316 # estavel
-      - image: archiocloud/develop:archio-main-v333 # nova pesuisa de volumes v anterior era 320
+      - image: archiocloud/develop:archio-main-v337 # 333 estavelnova pesuisa de volumes v anterior era 320
 
       
      
