@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:archio-cron-register-v08
+        - image: archiocloud/develop:archio-cron-register-v09
           name: cron-count-register-volume
           envFrom:
             - secretRef:

@@ -2,28 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: archio-iterator
-  name: archio-iterator 
+    app: archio-signature
+  name: archio-signature
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: archio-iterator
+      app: archio-signature
   template:
     metadata:
       labels:
-        app: archio-iterator
+        app: archio-signature
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:archio-iterator-v58
-          name: archio-iterator
+        - image: archiocloud/develop:archio-signature-v204
+          name: archio-signature
           envFrom:
             - secretRef:
                 name: api-secret
-          # resources:
-          #   limits:
-          #     memory: 300Mi
-          #     cpu: 500m    
           

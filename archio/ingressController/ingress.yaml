@@ -16,7 +16,7 @@ spec:
   - hosts:
     - "archiomaintestes.archio.com.br"  
     secretName: "archiomain-secret-prod"  
-  - hosts:
+  - hosts:cd 
     - "exportarchivestestes.archio.com.br"  
     secretName: "exportarchives-secret-prod"   
   - hosts:

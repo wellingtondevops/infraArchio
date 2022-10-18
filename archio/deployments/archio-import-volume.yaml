@@ -18,7 +18,7 @@ spec:
         - name: pullsecret
       containers:
       # - image: archiocloud/develop:archio-import-volume-v12 estável
-      - image: archiocloud/develop:archio-import-volume-v40 #teste de nova importacao
+      - image: archiocloud/develop:archio-import-volume-v42 #teste de nova importacao
         name: archio-imp-vol
         # resources:
         #   limits:
