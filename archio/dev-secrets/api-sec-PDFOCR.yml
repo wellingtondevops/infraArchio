@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: api-secret
+  name: api-secret-pdfocr
 type: Opaque
 data:
-  DB_URL: 'OPAQUE GERADO'
-
+  PDFOCR: Li9QREZPQ1Iv
+  
 

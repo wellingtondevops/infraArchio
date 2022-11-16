@@ -5,7 +5,7 @@ metadata:
     app: archio-main
   name: archio-main  
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: archio-main
@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-main-v402
+      - image: archiocloud/develop:archio-main-v505
         name: archio-main        
         ports:
         - containerPort: 3000
@@ -25,7 +25,8 @@ spec:
         envFrom:
             - secretRef:
                 name: api-secret
+                name: api-secret-amqp
           
-            
+  # versao anterior 402          
 # This version includes file transfer.
 # It also includes creating packages, selling packages, uploading certificates for digital signatures. That is, it is operational until it is sent to the ocr or subscription queue.

@@ -19,7 +19,7 @@ spec:
       containers:
       # - image: archiocloud/develop:archio-import-archive-v9 # ok
       # - image: archiocloud/develop:archio-import-archive-v36
-      - image: archiocloud/develop:archio-import-archive-v52 #versao experimental para biggestDate
+      - image: archiocloud/develop:archio-import-archive-v54 #ver v52 antia mudei firebase aqui
         name: archio-imp-arc
         # resources:
         #   limits:
