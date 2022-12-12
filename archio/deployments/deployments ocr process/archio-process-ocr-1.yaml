@@ -17,11 +17,19 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:archio-ocr-v6
+        - image: archiocloud/develop:archio-ocr-v12
           name: archio-ocr-1
           envFrom:
             - secretRef:
                 name: api-secret
                 name: api-secret-amqp
+          # resources:kubd
+          #   requests:
+          #     memory: 100Mi
+          #     cpu: 100m
+          #   limits:
+          #     memory: 500Mi
+          #     cpu: 1700m    
+                
                 
           

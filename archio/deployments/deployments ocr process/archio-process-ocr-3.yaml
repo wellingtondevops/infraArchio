@@ -2,24 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: archio-signature-1
-  name: archio-signature-1
+    app: archio-ocr-3
+  name: archio-ocr-3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: archio-signature-1
+      app: archio-ocr-3
   template:
     metadata:
       labels:
-        app: archio-signature-1
+        app: archio-ocr-3
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:archio-sign-v1
-          name: archio-signature-1
+        - image: archiocloud/develop:archio-ocr-v11
+          name: archio-ocr-3
           envFrom:
             - secretRef:
                 name: api-secret
                 name: api-secret-amqp
+                
+          

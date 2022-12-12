@@ -2,31 +2,30 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   labels:
-    app: archio-main
-  name: archio-main  
+    app: archio-try
+  name: archio-try
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: archio-main
+      app: archio-try
   template:
     metadata:
       labels:
-        app: archio-main
+        app: archio-try
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-main-v525 
-        name: archio-main        
+      - image: archiocloud/develop:archio-tryqueue-v2
+        name: archio-try
         ports:
-        - containerPort: 3000
-          name: archio-main    
+        - containerPort: 3020
+          name: archio-try
         envFrom:
             - secretRef:
                 name: api-secret
                 name: api-secret-amqp
-      
           
   # versao anterior 402          
 # This version includes file transfer.

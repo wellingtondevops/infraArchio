@@ -2,29 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: cron-reports
-  name: cron-reports
+    app: archio-signature-2
+  name: archio-signature-2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cron-reports
+      app: archio-signature-2
   template:
     metadata:
       labels:
-        app: cron-reports
+        app: archio-signature-2
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-
-        - image: archiocloud/develop:archio-cron-v10
-          name: cron-reports
+        - image: archiocloud/develop:archio-sign-v11
+          name: archio-signature-2
           envFrom:
             - secretRef:
                 name: api-secret
-          resources:
-            limits:
-              memory: 300Mi
-              cpu: 500m    
-          
+                name: api-secret-amqp

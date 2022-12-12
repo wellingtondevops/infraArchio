@@ -5,7 +5,7 @@ metadata:
     app: archio-mupload
   name: archio-mupload 
 spec:
-  replicas: 2
+  replicas: 7
   selector:
     matchLabels:
       app: archio-mupload
@@ -26,3 +26,4 @@ spec:
         envFrom:
             - secretRef:
                 name: api-secret-upload  
+       
