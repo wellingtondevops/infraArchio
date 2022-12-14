@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  name: api-secret-upload
-type: Opaque
-data:
-  MONGO_URL: bW9uZ29kYjovL2VhcmNoaXZlVGVzdGVyOmNkaDB0QVlVRkpYRE1CM3RAY2x1c3RlcjAtc2hhcmQtMDAtMDAtcnI2c3gubW9uZ29kYi5uZXQ6MjcwMTcvZWFyY2hpdmU/c3NsPXRydWUmcmVwbGljYVNldD1DbHVzdGVyMC1zaGFyZC0wJmF1dGhTb3VyY2U9YWRtaW4=
-
-
