@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  labels:
+    app: archio-imp
+  name: archio-imp  
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: archio-imp
+  template:
+    metadata:
+      labels:
+        app: archio-imp
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+      - image: archiocloud/develop:archio-main-v600 #tentnado arrumar o bug sem front operacional 528
+        name: archio-imp        
+        ports:
+        - containerPort: 3000
+          name: archio-imp    
+        envFrom:
+            - secretRef:
+                name: api-secret
+                name: api-secret-amqp
+      
+          
+  # versao anterior 402          
+# This version includes file transfer.
+# It also includes creating packages, selling packages, uploading certificates for digital signatures. That is, it is operational until it is sent to the ocr or subscription queue.

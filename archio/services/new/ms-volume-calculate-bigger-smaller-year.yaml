@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: msvolucaclbisma
+  name: msvolucaclbisma
+spec:
+  type: ClusterIP
+  ports:
+  - name: "msvolucaclbisma"
+    port: 3050
+    targetPort: 3050 
+  selector:
+    app: msvolucaclbisma

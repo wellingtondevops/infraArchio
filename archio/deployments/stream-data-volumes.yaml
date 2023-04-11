@@ -18,9 +18,8 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        # - image: archiocloud/develop:archio-iterator-v511
-        # - image: archiocloud/develop:archio-iterator-v512 ## tem q converter no qa versao esta inferior 316
-        - image: archiocloud/develop:archio-iterator-volumes-v8 ## estavel
+        # - image: archiocloud/develop:archio-iterator-volumes-v8 ## estavel
+        - image: archiocloud/develop:archio-iterator-volumes-v45 ## estavel
           name: stream-data-volumes
           envFrom:
             - secretRef:

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-secret-output
+type: Opaque
+data:
+  OUTPUT: Li9PVVRQVVQv
+  
+

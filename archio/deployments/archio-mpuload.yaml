@@ -5,7 +5,7 @@ metadata:
     app: archio-mupload
   name: archio-mupload 
 spec:
-  replicas: 7
+  replicas: 8
   selector:
     matchLabels:
       app: archio-mupload

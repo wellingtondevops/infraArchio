@@ -92,7 +92,7 @@ If TLS is enabled for the Ingress, a Secret containing the certificate and key m
 
 
   Gerar opaque
-  echo -n 'amqp://archio:archio@rabbitmq' | base64
+  echo -n "mongodb://archioDB:AbsuHS7eHTup32oerzoetm9Zr1lA29@cluster0-shard-00-00-rr6sx.mongodb.net:27017/archioProduction?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin" | base64
 
 
   34.135.213.219
@@ -101,3 +101,7 @@ If TLS is enabled for the Ingress, a Secret containing the certificate and key m
 
   se der problema use essa documentacao
   https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke
+
+
+
+  

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-sec-ampq-queue
+type: Opaque
+data:
+  AMPQ_QUEUE: YW1xcDovL2FyY2hpbzphcmNoaW9AcmFiYml0bXE=
+
+  
+  
+

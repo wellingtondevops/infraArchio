@@ -18,7 +18,7 @@ spec:
         - name: pullsecret
       containers:
         # - image: archiocloud/develop:archio-cron-volume-date-v02
-        - image: archiocloud/develop:archio-cron-volume-date-v03 #versao de testes
+        - image: archiocloud/develop:archio-cron-volume-date-v12 #versao de testes
           name: archio-cron-volume-date
           envFrom:
             - secretRef:

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-sec-kluster-queue
+type: Opaque
+data:
+  KULSTER_QUEUES: YW1xcDovL3JhYmJpdDpCWGtlVzlSYUNlVVdAMzUuMjI0LjIzLjI0Njo1Njcy
+
+
+  
+  
+

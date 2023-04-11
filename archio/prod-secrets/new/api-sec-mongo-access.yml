@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-sec-mongo-access
+type: Opaque
+data:
+  MONGO_ACESS: bW9uZ29kYjovL2FyY2hpb0RCOkFic3VIUzdlSFR1cDMyb2Vyem9ldG05WnIxbEEyOUBjbHVzdGVyMC1zaGFyZC0wMC0wMC1ycjZzeC5tb25nb2RiLm5ldDoyNzAxNy9hcmNoaW9Qcm9kdWN0aW9uP3NzbD10cnVlJnJlcGxpY2FTZXQ9Q2x1c3RlcjAtc2hhcmQtMCZhdXRoU291cmNlPWFkbWlu
+  
+
