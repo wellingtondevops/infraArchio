@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: archio-ocr
+  name: archio-ocr
+spec:
+  type: ClusterIP
+  ports:
+  - name: "archio-ocr"
+    port: 7001
+    targetPort: 7001   
+  selector:
+    app: archio-ocr

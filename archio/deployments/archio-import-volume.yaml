@@ -18,7 +18,7 @@ spec:
         - name: pullsecret
       containers:
       # - image: archiocloud/develop:archio-import-volume-v12 estável
-      - image: archiocloud/develop:archio-import-volume-v1000 #versao operacional é 42 esse mudei firebase
+      - image: archiocloud/develop:archio-import-volume-v1003 #versao operacional é 42 esse mudei firebase
         name: archio-imp-vol
         # resources:
         #   limits:

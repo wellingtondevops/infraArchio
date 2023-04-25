@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:msretentionvolume-v101
+        - image: archiocloud/develop:msretentionvolume-v110
           name: msretenvol
           ports:
           - containerPort: 3030

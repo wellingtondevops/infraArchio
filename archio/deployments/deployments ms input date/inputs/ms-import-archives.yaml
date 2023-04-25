@@ -5,7 +5,7 @@ metadata:
     app: msimportarchive
   name: msimportarchive
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: msimportarchive
@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:msimportarchives-v101 ##v55
+        - image: archiocloud/develop:msimportarchives-v108 ##v55
           name: msimportarchive
           ports:
           - containerPort: 1001
@@ -42,4 +42,13 @@ spec:
               valueFrom:
                  secretKeyRef: 
                   name: api-sec-mongo-access
-                  key: MONGO_ACESS                  
+                  key: MONGO_ACESS 
+            - name: PRINT_ERROR_ARCHIVES
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-url-api-main
+                  key: PRINT_ERROR_ARCHIVES                  
+                       
+
+
+                  

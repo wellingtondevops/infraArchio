@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: archio-sign
+  name: archio-sign
+spec:
+  type: ClusterIP
+  ports:
+  - name: "archio-sign"
+    port: 1010
+    targetPort: 1010   
+  selector:
+    app: archio-sign

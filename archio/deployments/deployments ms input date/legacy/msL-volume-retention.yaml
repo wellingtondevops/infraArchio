@@ -5,7 +5,7 @@ metadata:
     app: mslretenvol
   name: mslretenvol
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: mslretenvol
@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:mslretentionvolume-v203
+        - image: archiocloud/develop:mslretentionvolume-v204
           name: mslretenvol
           ports:
           - containerPort: 3031

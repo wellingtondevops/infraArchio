@@ -6,7 +6,7 @@ metadata:
     app: stream-data-volumes
   name: stream-data-volumes
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: stream-data-volumes
@@ -19,7 +19,7 @@ spec:
         - name: pullsecret
       containers:
         # - image: archiocloud/develop:archio-iterator-volumes-v8 ## estavel
-        - image: archiocloud/develop:archio-iterator-volumes-v45 ## estavel
+        - image: archiocloud/develop:archio-iterator-volumes-v46 ## estavel
           name: stream-data-volumes
           envFrom:
             - secretRef:

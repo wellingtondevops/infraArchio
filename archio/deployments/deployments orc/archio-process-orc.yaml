@@ -2,26 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: archio-signature
-  name: archio-signature
+    app: archio-ocr
+  name: archio-ocr
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: archio-sign
+      app: archio-ocr
   template:
     metadata:
       labels:
-        app: archio-sign
+        app: archio-ocr
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:archio-sign-v32
-          name: archio-sign
+        - image: archiocloud/develop:archio-ocrlocal-v33
+          name: archio-ocr
           ports:
-          - containerPort: 1010
-            name: archio-sign
+          - containerPort: 7001
+            name: archio-ocr
           # env:
           #   - name: AMPQ_QUEUE
           #     valueFrom:

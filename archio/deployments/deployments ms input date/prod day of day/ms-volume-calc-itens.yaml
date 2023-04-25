@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:msvolumecalculateitens-v101
+        - image: archiocloud/develop:msvolumecalculateitens-v1010
           name: msvolcalcitens
           ports:
           - containerPort: 3040
@@ -28,16 +28,7 @@ spec:
                  secretKeyRef: 
                   name: api-sec-ampq-queue
                   key: AMPQ_QUEUE
-            - name: CLOUD_QUEUE
-              valueFrom:
-                 secretKeyRef: 
-                  name: api-sec-cloud-queue
-                  key: CLOUD_QUEUE      
-            - name: KULSTER_QUEUES
-              valueFrom:
-                 secretKeyRef: 
-                  name: api-sec-kluster-queue
-                  key: KULSTER_QUEUES            
+                  
             - name: MONGO_ACESS
               valueFrom:
                  secretKeyRef: 

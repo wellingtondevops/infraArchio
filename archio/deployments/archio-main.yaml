@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-main-v1006
+      - image: archiocloud/develop:archio-main-v1030
       ##- image: archiocloud/develop:archio-main-v1005 #tentnado arrumar o bug sem front operacional 808
         name: archio-main        
         ports:

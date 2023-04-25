@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:msvolumecalculatebiggerandsmalleryear-v100
+        - image: archiocloud/develop:msvolumecalculatebiggerandsmalleryear-v102
           name: msvolucaclbisma
           ports:
           - containerPort: 3050

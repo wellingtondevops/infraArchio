@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-sec-url-api-main
+type: Opaque
+data:
+  PRINT_ERROR_ARCHIVES: aHR0cHM6Ly9hcmNoaW9tYWludGVzdGVzLmFyY2hpby5jb20uYnI=
+
+  
+  
+
