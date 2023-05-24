@@ -2,27 +2,25 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   labels:
-    app: archio-main
-  name: archio-main  
+    app: archio-arc-c-vol
+  name: archio-arc-c-vol
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
-      app: archio-main
+      app: archio-arc-c-vol
   template:
     metadata:
       labels:
-        app: archio-main
+        app: archio-arc-c-vol
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      # - image: archiocloud/develop:archio-main-v3001 versao estavel
-      - image: archiocloud/develop:archio-main-v3006
-        name: archio-main        
+      - image: archiocloud/develop:archio-archive-create-volume-v002
+        name: archio-arc-c-vol
         ports:
-        - containerPort: 3000
-          name: archio-main    
+        - containerPort: 1012
         env:
             - name: RABBITMQ_CONNECTION_URL
               valueFrom:
@@ -34,8 +32,13 @@ spec:
                  secretKeyRef: 
                   name: api-sec-archio-all
                   key: MONGO_ACESS      
+            - name: REDIS_HOST
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: REDIS_HOST                
             - name: REDIS_PORT
               valueFrom:
                  secretKeyRef: 
                   name: api-sec-archio-all
-                  key: REDIS_PORT                
+                  key: REDIS_PORT                      

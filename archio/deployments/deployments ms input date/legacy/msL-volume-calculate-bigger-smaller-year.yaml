@@ -5,7 +5,7 @@ metadata:
     app: mslvolcaclbisma
   name: mslvolcaclbisma
 spec:
-  replicas: 5
+  replicas: 4
   selector:
     matchLabels:
       app: mslvolcaclbisma
@@ -17,29 +17,20 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:mslvolumecalculatebiggerandsmalleryear-v201
+        - image: archiocloud/develop:mslvolumecalculatebiggerandsmalleryear-v300
           name: mslvolcaclbisma
           ports:
           - containerPort: 3051
             name: mslvolcaclbisma
           env:
-            - name: AMPQ_QUEUE
+            - name: RABBITMQ_CONNECTION_URL
               valueFrom:
                  secretKeyRef: 
-                  name: api-sec-ampq-queue
-                  key: AMPQ_QUEUE
-            - name: CLOUD_QUEUE
-              valueFrom:
-                 secretKeyRef: 
-                  name: api-sec-cloud-queue
-                  key: CLOUD_QUEUE      
-            - name: KULSTER_QUEUES
-              valueFrom:
-                 secretKeyRef: 
-                  name: api-sec-kluster-queue
-                  key: KULSTER_QUEUES            
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
             - name: MONGO_ACESS
               valueFrom:
                  secretKeyRef: 
-                  name: api-sec-mongo-access
-                  key: MONGO_ACESS                  
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            

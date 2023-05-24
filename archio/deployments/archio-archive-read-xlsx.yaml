@@ -2,27 +2,25 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   labels:
-    app: archio-main
-  name: archio-main  
+    app: archio-arc-r-xlsx
+  name: archio-arc-r-xlsx
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
-      app: archio-main
+      app: archio-arc-r-xlsx
   template:
     metadata:
       labels:
-        app: archio-main
+        app: archio-arc-r-xlsx
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      # - image: archiocloud/develop:archio-main-v3001 versao estavel
-      - image: archiocloud/develop:archio-main-v3006
-        name: archio-main        
+      - image: archiocloud/develop:archio-archive-read-xlsx-v014
+        name: archio-arc-r-xlsx
         ports:
-        - containerPort: 3000
-          name: archio-main    
+        - containerPort: 1011
         env:
             - name: RABBITMQ_CONNECTION_URL
               valueFrom:
@@ -39,3 +37,8 @@ spec:
                  secretKeyRef: 
                   name: api-sec-archio-all
                   key: REDIS_PORT                
+            - name: REDIS_HOST
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: REDIS_HOST                      

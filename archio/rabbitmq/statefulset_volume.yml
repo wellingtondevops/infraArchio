@@ -1,4 +1,7 @@
-# vim: set filetype=yaml :
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rabbitmq-volume  
 spec:
   template:
     spec:
@@ -8,6 +11,6 @@ spec:
             - mountPath: "/var/lib/rabbitmq"
               name: rabbitmq
       volumes:
-        - name: rabbitmq
+        - name: rabbitmq-volume
           persistentVolumeClaim:
-            claimName: rabbitmq
+            claimName: rabbitmq-volume

@@ -19,13 +19,17 @@ spec:
         - name: pullsecret
       containers:
         # - image: archiocloud/develop:archio-iterator-volumes-v8 ## estavel
-        - image: archiocloud/develop:archio-iterator-volumes-v46 ## estavel
+        - image: archiocloud/develop:archio-iterator-volumes-v3000
           name: stream-data-volumes
-          envFrom:
-            - secretRef:
-                name: api-secret
-          # resources:
-          #   limits:
-          #     memory: 300Mi
-          #     cpu: 500m    
-          
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            

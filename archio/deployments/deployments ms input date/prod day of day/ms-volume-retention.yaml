@@ -5,7 +5,7 @@ metadata:
     app: msretenvol
   name: msretenvol
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: msretenvol
@@ -17,29 +17,20 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:msretentionvolume-v110
+        - image: archiocloud/develop:msretentionvolume-v3000
           name: msretenvol
           ports:
           - containerPort: 3030
             name: msretenvol
           env:
-            - name: AMPQ_QUEUE
+            - name: RABBITMQ_CONNECTION_URL
               valueFrom:
                  secretKeyRef: 
-                  name: api-sec-ampq-queue
-                  key: AMPQ_QUEUE
-            - name: CLOUD_QUEUE
-              valueFrom:
-                 secretKeyRef: 
-                  name: api-sec-cloud-queue
-                  key: CLOUD_QUEUE      
-            - name: KULSTER_QUEUES
-              valueFrom:
-                 secretKeyRef: 
-                  name: api-sec-kluster-queue
-                  key: KULSTER_QUEUES            
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
             - name: MONGO_ACESS
               valueFrom:
                  secretKeyRef: 
-                  name: api-sec-mongo-access
-                  key: MONGO_ACESS                  
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            

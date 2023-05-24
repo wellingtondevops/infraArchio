@@ -18,7 +18,7 @@ spec:
         - name: pullsecret
       containers:
       # - image: archiocloud/develop:archio-exportsearch-v203 estável
-      - image: archiocloud/develop:archio-exportsearch-v206
+      - image: archiocloud/develop:archio-exportsearch-v208
         name: export-archio
         # resources:
         #   limits:
@@ -26,8 +26,15 @@ spec:
         #     cpu: 150m
         ports:
         - containerPort: 3003
-          name: export-archio 
-        envFrom:
-            - secretRef:
-                name: api-secret  
-        
+        env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+          

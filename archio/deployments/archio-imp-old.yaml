@@ -22,12 +22,14 @@ spec:
         ports:
         - containerPort: 3000
           name: archio-imp    
-        envFrom:
-            - secretRef:
-                name: api-secret
-                name: api-secret-amqp
-      
-          
-  # versao anterior 402          
-# This version includes file transfer.
-# It also includes creating packages, selling packages, uploading certificates for digital signatures. That is, it is operational until it is sent to the ocr or subscription queue.
+        env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-rabbitmq
+                  key: RABBITMQ_CONNECTION_URL  
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-mongo-access
+                  key: MONGO_ACESS                  

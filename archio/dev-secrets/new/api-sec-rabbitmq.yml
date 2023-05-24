@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-sec-rabbitmq
+type: Opaque
+data:
+  RABBITMQ_CONNECTION_URL: YW1xcHM6Ly94ZGNqaGplbTpLXzcxY2dNZ0VHWmgtWXIweXFXUWc4c1VBSUZSQWVvaEBrZWJuZWthaXNlLmxtcS5jbG91ZGFtcXAuY29tL3hkY2poamVt
+
+  
+  
+

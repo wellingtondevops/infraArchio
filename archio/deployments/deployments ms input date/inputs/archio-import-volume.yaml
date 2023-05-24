@@ -1,28 +1,28 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment 
 metadata:
   labels:
-    app: mslvolcalcitens
-  name: mslvolcalcitens
+    app: archio-imp-vol
+  name: archio-imp-vol  
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
-      app: mslvolcalcitens
+      app: archio-imp-vol
   template:
     metadata:
       labels:
-        app: mslvolcalcitens
+        app: archio-imp-vol
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:mslvolumecalculateitens-v303
-          name: mslvolcalcitens
-          ports:
-          - containerPort: 3041
-            name: mslvolcalcitens
-          env:
+      - image: archiocloud/develop:archio-import-volume-v3002
+        name: archio-imp-vol
+        ports:
+        - containerPort: 3002
+          name: archio-imp-vol
+        env:
             - name: RABBITMQ_CONNECTION_URL
               valueFrom:
                  secretKeyRef: 

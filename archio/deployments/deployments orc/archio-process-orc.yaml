@@ -5,7 +5,7 @@ metadata:
     app: archio-ocr
   name: archio-ocr
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: archio-ocr
@@ -17,29 +17,20 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:archio-ocrlocal-v33
+        - image: archiocloud/develop:archio-ocr-v3000
           name: archio-ocr
           ports:
           - containerPort: 7001
             name: archio-ocr
-          # env:
-          #   - name: AMPQ_QUEUE
-          #     valueFrom:
-          #        secretKeyRef: 
-          #         name: api-sec-ampq-queue
-          #         key: AMPQ_QUEUE
-          #   - name: CLOUD_QUEUE
-          #     valueFrom:
-          #        secretKeyRef: 
-          #         name: api-sec-cloud-queue
-          #         key: CLOUD_QUEUE      
-          #   - name: KULSTER_QUEUES
-          #     valueFrom:
-          #        secretKeyRef: 
-          #         name: api-sec-kluster-queue
-          #         key: KULSTER_QUEUES            
-          #   - name: MONGO_ACESS
-          #     valueFrom:
-          #        secretKeyRef: 
-          #         name: api-sec-mongo-access
-          #         key: MONGO_ACESS                  
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            
