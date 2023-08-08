@@ -2,26 +2,26 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   labels:
-    app: archio-arc-r-xlsx
-  name: archio-arc-r-xlsx
+    app: archio-red-departament
+  name: archio-red-departament
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: archio-arc-r-xlsx
+      app: archio-red-departament
   template:
     metadata:
       labels:
-        app: archio-arc-r-xlsx
+        app: archio-red-departament
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      # - image: archiocloud/develop:archio-archive-read-xlsx-v4030
-      - image: archiocloud/develop:archio-archive-read-xlsx-v4040
-        name: archio-arc-r-xlsx
+      # - image: archiocloud/develop:archio-archive-reduce-departament-v05 fazer amanhá
+      - image: archiocloud/develop:archio-archive-reduce-departament-v06
+        name: archio-red-departament
         ports:
-        - containerPort: 1011
+        - containerPort: 3032
         env:
             - name: RABBITMQ_CONNECTION_URL
               valueFrom:
@@ -42,7 +42,7 @@ spec:
               valueFrom:
                  secretKeyRef: 
                   name: api-sec-archio-all
-                  key: REDIS_HOST  
+                  key: REDIS_HOST    
 
 
-                  # ok                    
+                  # ok                  

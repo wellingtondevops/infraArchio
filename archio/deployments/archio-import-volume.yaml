@@ -2,26 +2,26 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   labels:
-    app: archio-arc-r-xlsx
-  name: archio-arc-r-xlsx
+    app: archio-imp-vol
+  name: archio-imp-vol  
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: archio-arc-r-xlsx
+      app: archio-imp-vol
   template:
     metadata:
       labels:
-        app: archio-arc-r-xlsx
+        app: archio-imp-vol
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      # - image: archiocloud/develop:archio-archive-read-xlsx-v4030
-      - image: archiocloud/develop:archio-archive-read-xlsx-v4040
-        name: archio-arc-r-xlsx
+      - image: archiocloud/develop:archio-import-volume-v3005
+        name: archio-imp-vol
         ports:
-        - containerPort: 1011
+        - containerPort: 3002
+          name: archio-imp-vol
         env:
             - name: RABBITMQ_CONNECTION_URL
               valueFrom:
@@ -38,11 +38,20 @@ spec:
                  secretKeyRef: 
                   name: api-sec-archio-all
                   key: REDIS_PORT                
-            - name: REDIS_HOST
-              valueFrom:
-                 secretKeyRef: 
-                  name: api-sec-archio-all
-                  key: REDIS_HOST  
+            
+        # env:
+        #     - name: RABBITMQ_CONNECTION_URL
+        #       valueFrom:
+        #          secretKeyRef: 
+        #           name: api-sec-archio-all
+        #           key: RABBITMQ_CONNECTION_URL
+                  
+        #     - name: MONGO_ACESS
+        #       valueFrom:
+        #          secretKeyRef: 
+        #           name: api-sec-archio-all
+        #           key: MONGO_ACESS    
 
 
-                  # ok                    
+        
+            

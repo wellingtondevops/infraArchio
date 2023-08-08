@@ -2,26 +2,26 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   labels:
-    app: archio-arc-r-xlsx
-  name: archio-arc-r-xlsx
+    app: ms-restruct-archives
+  name: ms-restruct-archives
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: archio-arc-r-xlsx
+      app: ms-restruct-archives
   template:
     metadata:
       labels:
-        app: archio-arc-r-xlsx
+        app: ms-restruct-archives
     spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      # - image: archiocloud/develop:archio-archive-read-xlsx-v4030
-      - image: archiocloud/develop:archio-archive-read-xlsx-v4040
-        name: archio-arc-r-xlsx
+      # - image: archiocloud/develop:archio-archive-reduce-document-v09 para fazer amanhá
+      - image: archiocloud/develop:archio-restruct-archives-v03
+        name: ms-restruct-archives
         ports:
-        - containerPort: 1011
+        - containerPort: 3034
         env:
             - name: RABBITMQ_CONNECTION_URL
               valueFrom:
@@ -38,11 +38,4 @@ spec:
                  secretKeyRef: 
                   name: api-sec-archio-all
                   key: REDIS_PORT                
-            - name: REDIS_HOST
-              valueFrom:
-                 secretKeyRef: 
-                  name: api-sec-archio-all
-                  key: REDIS_HOST  
-
-
-                  # ok                    
+                               

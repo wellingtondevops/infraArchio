@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-import-volume-v3002
+      - image: archiocloud/develop:archio-import-volume-v3007
         name: archio-imp-vol
         ports:
         - containerPort: 3002
@@ -33,4 +33,12 @@ spec:
                  secretKeyRef: 
                   name: api-sec-archio-all
                   key: MONGO_ACESS      
+            - name: REDIS_PORT
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: REDIS_PORT                
+              
+
+            # ok
             

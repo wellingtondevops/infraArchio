@@ -5,7 +5,7 @@ metadata:
     app: msretenvol
   name: msretenvol
 spec:
-  replicas: 4
+  replicas: 10
   selector:
     matchLabels:
       app: msretenvol
@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        - image: archiocloud/develop:msretentionvolume-v3000
+        - image: archiocloud/develop:msretentionvolume-v3004
           name: msretenvol
           ports:
           - containerPort: 3030
@@ -33,4 +33,4 @@ spec:
                  secretKeyRef: 
                   name: api-sec-archio-all
                   key: MONGO_ACESS      
-            
+            # ta fudido

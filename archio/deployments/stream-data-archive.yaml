@@ -18,7 +18,7 @@ spec:
         - name: pullsecret
       containers:
         # - image: archiocloud/develop:archio-iterator-v609 ## estavel
-        - image: archiocloud/develop:archio-iterator-v3001
+        - image: archiocloud/develop:archio-iterator-v3005
           name: stream-data-archive
           env:
             - name: RABBITMQ_CONNECTION_URL

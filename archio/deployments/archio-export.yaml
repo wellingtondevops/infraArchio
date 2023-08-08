@@ -5,7 +5,7 @@ metadata:
     app: export-archio
   name: export-archio  
 spec:
-  replicas: 4
+  replicas: 3
   selector:
     matchLabels:
       app: export-archio
@@ -18,7 +18,8 @@ spec:
         - name: pullsecret
       containers:
       # - image: archiocloud/develop:archio-exportsearch-v203 estável
-      - image: archiocloud/develop:archio-exportsearch-v208
+      # testes importacao
+      - image: archiocloud/develop:archio-exportsearch-v1010
         name: export-archio
         # resources:
         #   limits:
