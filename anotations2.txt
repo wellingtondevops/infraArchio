@@ -15,6 +15,7 @@ Implantar o controlador de entrada NGINX com o Helm
 5- Exporte o EXTERNAL-IPdo controlador de entrada NGINX em uma variável para ser usada posteriormente:
     
    *** export NGINX_INGRESS_IP=$(kubectl get service nginx-ingress-ingress-nginx-controller -o json | jq -r '.status.loadBalancer.ingress[].ip')
+   
 
 6- echo $NGINX_INGRESS_IP  
 
@@ -92,16 +93,24 @@ If TLS is enabled for the Ingress, a Secret containing the certificate and key m
 
 
   Gerar opaque
-  echo -n "https://archiomainprod.archio.com.br" | base64
+  echo -n "https://archio.com.br/signature/contracts/showcontract" | base64
 
 
   34.135.213.219
 
-  curl -m1 34.135.213.219:110
+  curl -m1 34.68.69.248:110
 
   se der problema use essa documentacao
   https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke
 
 
+echo -n YW1xcHM6Ly93c3Ftdmp4YjpqaW5sMkN2eUNZVGViMXlBTmcxT3ZZYU9qOVNEbllHX0B0b3VnaC1zaWx2ZXItZ2liYm9uLnJtcTUuY2xvdWRhbXFwLmNvbS93c3Ftdmp4Yg== | base64 -d
 
-  
+
+
+prod bW9uZ29kYjovL3Byb2RhcmNoaW86NUNzOTdBaDZRYW9uYnlHWUBjbHVzdGVyMC1zaGFyZC0wMC0wMC1ycjZzeC5tb25nb2RiLm5ldDoyNzAxNy9hcmNoaW9Qcm9kdWN0aW9uP3NzbD10cnVlJnJlcGxpY2FTZXQ9Q2x1c3RlcjAtc2hhcmQtMCZhdXRoU291cmNlPWFkbWlu
+
+
+
+
+echo bW9uZ29kYjovL3Byb2RhcmNoaW86NUNzOTdBaDZRYW9uYnlHWUBjbHVzdGVyMC1zaGFyZC0wMC0wMC1ycjZzeC5tb25nb2RiLm5ldDoyNzAxNy9hcmNoaW9Qcm9kdWN0aW9uP3NzbD10cnVlJnJlcGxpY2FTZXQ9Q2x1c3RlcjAtc2hhcmQtMCZhdXRoU291cmNlPWFkbWlu | base64 --decode

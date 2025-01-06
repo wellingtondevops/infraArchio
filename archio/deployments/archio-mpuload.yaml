@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   labels:
     app: archio-mupload
-  name: archio-mupload 
+  name: archio-mupload
 spec:
-  replicas: 7
+  replicas: 8
   selector:
     matchLabels:
       app: archio-mupload
@@ -17,13 +17,22 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      # - image: archiocloud/develop:archio-multupload-v13 #ok
-      - image: archiocloud/develop:archio-multupload-v14 #ok
-        name: archio-mupload        
+      # - image: archiocloud/develop:archio-multupload-v38
+      # - image: archiocloud/develop:archio-multupload-v54
+      # - image: archiocloud/develop:archio-multupload-v61
+      - image: archiocloud/develop:archio-multupload-v65
+        name: archio-mupload      
         ports:
         - containerPort: 2000
           name: archio-mupload
-        envFrom:
-            - secretRef:
-                name: api-secret-upload  
-       
+        env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      

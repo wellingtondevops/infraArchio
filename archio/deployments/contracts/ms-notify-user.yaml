@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  labels:
+    app: ms-notify-user
+  name: ms-notify-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-notify-user
+  template:
+    metadata:
+      labels:
+        app: ms-notify-user
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+      - image: archiocloud/develop:archio-ms-notify-user-v9
+        name: ms-notify-user
+        ports:
+        - containerPort: 3036
+        env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS 
+            - name: URL_ARCHIO
+              valueFrom:
+                 secretKeyRef: 
+                  name: secret-archio-sign
+                  key: URL_ARCHIO 

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ms-restruct-dct-arc
+  name: ms-restruct-dct-arc
+spec:
+  type: ClusterIP
+  ports:
+  - name: "ms-restruct-dct-arc"
+    port: 3035
+    targetPort: 3035   
+  selector:
+    app: ms-restruct-dct-arc

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: admin-plans
+  name: admin-plans
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-plans
+  template:
+    metadata:
+      labels:
+        app: admin-plans
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:admin-plansv2
+          name: admin-plans
+          env:
+            - name: AMPQ_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-admin-all
+                  key: AMPQ_URL
+            - name: MONGO_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-admin-all
+                  key: MONGO_URL      
+            - name: JWT_SECRET
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-admin-all
+                  key: JWT_SECRET    
+            - name: EXPIRES_IN
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-admin-all
+                  key: EXPIRES_IN          
+            - name: APP_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-admin-all
+                  key: APP_URL          
+
+

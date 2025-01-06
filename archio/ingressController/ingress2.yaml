@@ -1,0 +1,65 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-hosts
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "66600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "66600"
+spec:
+  tls:
+  - hosts:
+    - "rabbitmqlproduction.archio.com.br"  
+    secretName: "queues-secret-prod"
+  - hosts:
+    - "archiomainproduction.archio.com.br"  
+    secretName: "archiomain-secret-prod"  
+  - hosts:
+    - "gatewayadminproduction.archio.com.br"  
+    secretName: "gatewayadmim-secret-prod"   
+  - hosts:
+    - "uploadproduction.archio.com.br"   
+    secretName: "mupload-secret-prod"   
+  rules:
+  - host: rabbitmqlproduction.archio.com.br  
+    http:
+      paths:
+        - pathType: "Prefix"
+          path: "/"
+          backend:
+            service:
+              name: rabbitmq
+              port:
+                number: 80
+  - host: archiomainproduction.archio.com.br  
+    http:
+      paths:
+        - pathType: "Prefix"
+          path: "/"
+          backend:
+            service:
+              name: archio-main
+              port:
+                number: 80
+  - host: uploadproduction.archio.com.br
+    http:
+      paths:
+        - pathType: "Prefix"
+          path: "/"
+          backend:
+            service:
+              name: archio-mupload
+              port:
+                number: 80              
+  - host: gatewayadminproduction.archio.com.br  
+    http:
+      paths:
+        - pathType: "Prefix"
+          path: "/"
+          backend:
+            service:
+              name: gateway
+              port:
+                number: 80              

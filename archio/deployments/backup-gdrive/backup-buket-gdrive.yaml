@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backup-buket-gdrive
+  name: backup-buket-gdrive
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backup-buket-gdrive
+  template:
+    metadata:
+      labels:
+        app: backup-buket-gdrive
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        # - image: archiocloud/develop:archio-iterator-v40016
+        - image: archiocloud/develop:backup-buket-gdrive-v1
+          name: backup-buket-gdrive
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            

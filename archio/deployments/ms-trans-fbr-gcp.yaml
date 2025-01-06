@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ms-trans-fbrgcp
+  name: ms-trans-fbrgcp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ms-trans-fbrgcp
+  template:
+    metadata:
+      labels:
+        app: ms-trans-fbrgcp
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:archio-ms-transfer-frb-gcp-v0008
+          name: ms-trans-fbrgcp
+          ports:
+          - containerPort: 3050
+            name: ms-trans-fbrgcp
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            

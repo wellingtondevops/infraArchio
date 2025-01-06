@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    # URL do servidor ACME para o ambiente de staging
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    # Endereço de e-mail usado para registro no ACME
+    email: woliveira@archio.com.br
+    # Nome do segredo onde a chave privada do ACME será armazenada
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    # Habilita o provider de desafio HTTP-01
+    solvers:
+      - http01: {}
+
+
+
+      # cert-manager
+      

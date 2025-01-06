@@ -1,0 +1,30 @@
+kubectl apply -f mongodb-config.yaml
+kubectl apply -f mongodb-pv.yaml
+kubectl apply -f mongodb-pvc.yaml
+kubectl apply -f mongodb-service.yaml
+kubectl apply -f mongodb-deployment.yaml
+
+
+mongodbtestes
+mongo --host mongodbtestes.archio.com.br --port 27017 -u mongouser -p password123
+
+
+
+mongodb://mongouser:password123@mongodbtestes.archio.com.br:80/archio?authSource=admin
+
+
+
+mongodb://mongouser:password123@mongodbtestes.archio.com.br:27017/archio?authSource=admin
+
+export MONGO_USERNAME='mongouser'
+export MONGO_PASSWORD='password123'
+export MONGO_HOST='mongodbtestes.archio.com.br'
+export MONGO_DB_NAME='archio'
+export MONGO_AUTH_DB='admin'
+
+nslookup mongodbtestes.archio.com.br
+telnet mongodbtestes.archio.com.br 27017
+
+
+
+

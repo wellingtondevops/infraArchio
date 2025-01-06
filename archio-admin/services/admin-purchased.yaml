@@ -1,0 +1,26 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: purchased-lb-svc
+# spec:
+#   selector:
+#     app: admin-purchased
+#   ports:
+#     - protocol: TCP
+#       port: 80
+#       targetPort: 8080
+#   type: LoadBalancer
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin-purchased-internal-svc
+spec:
+  selector:
+    app: admin-purchased
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080 
+

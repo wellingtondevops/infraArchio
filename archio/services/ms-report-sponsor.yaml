@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ms-report-sponsor
+  name: ms-report-sponsor
+spec:
+  type: ClusterIP
+  ports:
+  - name: "ms-report-sponsor-service"
+    port: 3040
+    targetPort: 3040    
+  selector:
+    app: ms-report-sponsor

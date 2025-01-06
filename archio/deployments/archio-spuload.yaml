@@ -1,11 +1,38 @@
+# apiVersion: apps/v1
+# kind: Deployment 
+# metadata:
+#   labels:
+#     app: archio-supload
+#   name: archio-supload 
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: archio-supload
+#   template:
+#     metadata:
+#       labels:
+#         app: archio-supload
+#     spec:
+#       imagePullSecrets:
+#         - name: pullsecret
+#       containers:
+#       - image: archiocloud/develop:archio-sultupload-v9
+#         name: archio-supload        
+#         ports:
+#         - containerPort: 2002
+#           name: archio-supload
+#         envFrom:
+#             - secretRef:
+#                 name: api-secret-upload    
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
   labels:
     app: archio-supload
-  name: archio-supload 
+  name: archio-supload
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
       app: archio-supload
@@ -17,11 +44,21 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-sultupload-v9
-        name: archio-supload        
+      - image: archiocloud/develop:archio-multupload-v38
+      # - image: archiocloud/develop:archio-multupload-v42
+      
+        name: archio-supload
         ports:
         - containerPort: 2002
           name: archio-supload
-        envFrom:
-            - secretRef:
-                name: api-secret-upload    
+        env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      

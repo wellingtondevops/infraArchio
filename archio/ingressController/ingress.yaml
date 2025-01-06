@@ -11,25 +11,19 @@ metadata:
 spec:
   tls:
   - hosts:
-    - "queuestestes.archio.com.br"  
+    - "rabbitmqlproduction.archio.com.br"  
     secretName: "queues-secret-prod"
   - hosts:
-    - "archiomaintestes.archio.com.br"  
+    - "archiomainproduction.archio.com.br"  
     secretName: "archiomain-secret-prod"  
   - hosts:
-    - "exportarchivestestes.archio.com.br"  
-    secretName: "exportarchives-secret-prod"   
+    - "gatewayadminproduction.archio.com.br"  
+    secretName: "gatewayadmim-secret-prod"   
   - hosts:
-    - "muploadtestes.archio.com.br"   
+    - "uploadproduction.archio.com.br"   
     secretName: "mupload-secret-prod"   
-  - hosts:
-    - "smuploadtestes.archio.com.br"   
-    secretName: "smupload-secret-prod"     
-  - hosts:
-    - "imagestestes.archio.com.br"   
-    secretName: "images-secret-prod"       
   rules:
-  - host: queuestestes.archio.com.br  
+  - host: rabbitmqlproduction.archio.com.br  
     http:
       paths:
         - pathType: "Prefix"
@@ -39,7 +33,7 @@ spec:
               name: rabbitmq
               port:
                 number: 80
-  - host: archiomaintestes.archio.com.br  
+  - host: archiomainproduction.archio.com.br  
     http:
       paths:
         - pathType: "Prefix"
@@ -49,7 +43,7 @@ spec:
               name: archio-main
               port:
                 number: 80
-  - host: muploadtestes.archio.com.br
+  - host: uploadproduction.archio.com.br
     http:
       paths:
         - pathType: "Prefix"
@@ -59,35 +53,13 @@ spec:
               name: archio-mupload
               port:
                 number: 80              
-  - host: smuploadtestes.archio.com.br
+  - host: gatewayadminproduction.archio.com.br  
     http:
       paths:
         - pathType: "Prefix"
           path: "/"
           backend:
             service:
-              name: archio-supload
-              port:
-                number: 80                            
-  - host: exportarchivestestes.archio.com.br  
-    http:
-      paths:
-        - pathType: "Prefix"
-          path: "/"
-          backend:
-            service:
-              name: export-archio
+              name: gateway
               port:
                 number: 80              
-  - host: imagestestes.archio.com.br  
-    http:
-      paths:
-        - pathType: "Prefix"
-          path: "/"
-          backend:
-            service:
-              name: archio-images
-              port:
-                number: 80              
-                            
-

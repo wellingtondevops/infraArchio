@@ -1,14 +1,48 @@
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment 
 metadata:
   labels:
     app: archio-arc-r-xlsx
   name: archio-arc-r-xlsx
 spec:
-  type: ClusterIP
-  ports:
-  - name: "archio-arc-r-xlsx"
-    port: 1011
-    targetPort: 1011   
+  replicas: 3
   selector:
-    app: archio-arc-r-xlsx
+    matchLabels:
+      app: archio-arc-r-xlsx
+  template:
+    metadata:
+      labels:
+        app: archio-arc-r-xlsx
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+      # - image: archiocloud/develop:archio-archive-read-xlsx-v4030
+      - image: archiocloud/develop:archio-archive-read-xlsx-v4040
+        name: archio-arc-r-xlsx
+        ports:
+        - containerPort: 1011
+        env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            - name: REDIS_PORT
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: REDIS_PORT                
+            - name: REDIS_HOST
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: REDIS_HOST  
+
+
+                  # ok                    

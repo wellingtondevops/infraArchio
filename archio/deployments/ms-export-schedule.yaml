@@ -1,0 +1,35 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ms-export-schedule
+  name: ms-export-schedule
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ms-export-schedule
+  template:
+    metadata:
+      labels:
+        app: ms-export-schedule
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:ms-export-schedule-v0001
+        
+          name: ms-export-schedule
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS   
+            

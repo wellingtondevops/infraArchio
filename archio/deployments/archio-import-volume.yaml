@@ -17,7 +17,8 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      - image: archiocloud/develop:archio-import-volume-v3005
+      # - image: archiocloud/develop:archio-import-volume-v3011
+      - image: archiocloud/develop:archio-import-volume-v3021 #falta deploy homolog experimental ainda
         name: archio-imp-vol
         ports:
         - containerPort: 3002
@@ -38,20 +39,7 @@ spec:
                  secretKeyRef: 
                   name: api-sec-archio-all
                   key: REDIS_PORT                
-            
-        # env:
-        #     - name: RABBITMQ_CONNECTION_URL
-        #       valueFrom:
-        #          secretKeyRef: 
-        #           name: api-sec-archio-all
-        #           key: RABBITMQ_CONNECTION_URL
-                  
-        #     - name: MONGO_ACESS
-        #       valueFrom:
-        #          secretKeyRef: 
-        #           name: api-sec-archio-all
-        #           key: MONGO_ACESS    
+              
 
-
-        
+            # ok
             

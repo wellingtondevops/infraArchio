@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mslvolcaclbisma
+  name: mslvolcaclbisma
+spec:
+  replicas: 40
+  selector:
+    matchLabels:
+      app: mslvolcaclbisma
+  template:
+    metadata:
+      labels:
+        app: mslvolcaclbisma
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:mslvolumecalculatebiggerandsmalleryear-v300
+          name: mslvolcaclbisma
+          ports:
+          - containerPort: 3051
+            name: mslvolcaclbisma
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            

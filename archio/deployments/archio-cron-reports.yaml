@@ -17,14 +17,17 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-
-        - image: archiocloud/develop:archio-cron-v10
+        - image: archiocloud/develop:archio-cron-v33
           name: cron-reports
-          envFrom:
-            - secretRef:
-                name: api-secret
-          resources:
-            limits:
-              memory: 300Mi
-              cpu: 500m    
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
           

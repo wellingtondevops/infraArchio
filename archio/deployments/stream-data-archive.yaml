@@ -5,7 +5,7 @@ metadata:
     app: stream-data-archive
   name: stream-data-archive
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: stream-data-archive
@@ -17,8 +17,9 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-        # - image: archiocloud/develop:archio-iterator-v609 ## estavel
-        - image: archiocloud/develop:archio-iterator-v3005
+        # - image: archiocloud/develop:archio-iterator-v40025 ok
+        # - image: archiocloud/develop:archio-iterator-v40028 ok mas só csv
+        - image: archiocloud/develop:archio-iterator-v40030
           name: stream-data-archive
           env:
             - name: RABBITMQ_CONNECTION_URL

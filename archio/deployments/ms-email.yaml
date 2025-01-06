@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  labels:
+    app: ms-email
+  name: ms-email
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ms-email
+  template:
+    metadata:
+      labels:
+        app: ms-email
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+      - image: archiocloud/develop:archio-ms-email-v11
+        name: ms-email
+        ports:
+        - containerPort: 3052
+        env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            - name: REDIS_PORT
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: REDIS_PORT                
+                              #  ms-control-user

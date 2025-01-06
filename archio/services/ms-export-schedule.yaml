@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ms-export-schedule
+  name: ms-export-schedule  
+spec:
+  type: ClusterIP
+  ports:
+  - name: "ms-export-schedule-service"
+    port: 3077
+    targetPort: 3077   
+  selector:
+    app: ms-export-schedule

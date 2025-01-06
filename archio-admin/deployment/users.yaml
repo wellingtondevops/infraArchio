@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: users
+  name: users
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users
+  template:
+    metadata:
+      labels:
+        app: users
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:usersv6
+          name: users
+          env:
+            - name: AMPQ_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-admin-all
+                  key: AMPQ_URL
+            - name: MONGO_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-admin-all
+                  key: MONGO_URL      
+            - name: JWT_SECRET
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-admin-all
+                  key: JWT_SECRET    
+            - name: PASSWORD_FORGOT
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-admin-all
+                  key: PASSWORD_FORGOT          
+            - name: PASSWORD_INIT
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-admin-all
+                  key: PASSWORD_INIT          
+
+

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mslretenvol
+  name: mslretenvol
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mslretenvol
+  template:
+    metadata:
+      labels:
+        app: mslretenvol
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:mslretentionvolume-v300
+          name: mslretenvol
+          ports:
+          - containerPort: 3031
+            name: mslretenvol
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            

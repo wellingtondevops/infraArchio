@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ms-signature-archio
+  name: ms-signature-archio
+spec:
+  type: ClusterIP
+  ports:
+  - name: "ms-signature-archio"
+    port: 80
+    targetPort: 1066    
+  selector:
+    app: ms-signature-archio

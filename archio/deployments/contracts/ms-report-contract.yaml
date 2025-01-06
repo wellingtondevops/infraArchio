@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  labels:
+    app: ms-report-contract
+  name: ms-report-contract
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-report-contract
+  template:
+    metadata:
+      labels:
+        app: ms-report-contract
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+      - image: archiocloud/develop:archio-ms-report-contract-v41
+      # - image: archiocloud/develop:archio-ms-report-contract-v26 funcioonando estranho
+        name: ms-report-contract
+        ports:
+        - containerPort: 3030
+        env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS 
+            

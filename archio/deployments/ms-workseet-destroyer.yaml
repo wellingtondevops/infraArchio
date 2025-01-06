@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ms-workseet-destroyer
+  name: ms-workseet-destroyer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-workseet-destroyer
+  template:
+    metadata:
+      labels:
+        app: ms-workseet-destroyer
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:ms-workseet-destroyer-v1
+          name: ms-workseet-destroyer
+          env:
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+          

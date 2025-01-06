@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: archio-c-volume-restart
+spec:
+  schedule: "0 7 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: archio-arc-c-vol
+            image: archiocloud/develop:archio-archive-create-volume-v4011
+          restartPolicy: OnFailure

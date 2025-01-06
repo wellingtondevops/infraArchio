@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ms-email
+  name: ms-email
+spec:
+  type: LoadBalancer
+  ports:
+  - name: "ms-email"
+    port: 3052
+    targetPort: 3052
+  selector:
+    app: ms-email

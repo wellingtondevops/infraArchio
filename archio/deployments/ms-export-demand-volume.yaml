@@ -1,0 +1,35 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ms-export-demand-vol
+  name: ms-export-demand-vol
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ms-export-demand-vol
+  template:
+    metadata:
+      labels:
+        app: ms-export-demand-vol
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:ms-export-demand-volume-v0003
+        
+          name: ms-export-demand-vol
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS   
+            

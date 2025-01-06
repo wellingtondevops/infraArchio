@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  labels:
+    app: ms-control-user
+  name: ms-control-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-control-user
+  template:
+    metadata:
+      labels:
+        app: ms-control-user
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+      - image: archiocloud/develop:archio-ms-control-user-v21
+        name: ms-control-user
+        ports:
+        - containerPort: 3032
+        env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS 
+            - name: URL_ARCHIO
+              valueFrom:
+                 secretKeyRef: 
+                  name: secret-control-user
+                  key: URL_ARCHIO       
+            

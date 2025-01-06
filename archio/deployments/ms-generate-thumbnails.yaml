@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  labels:
+    app: ms-thumbnails
+  name: ms-thumbnails
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ms-thumbnails
+  template:
+    metadata:
+      labels:
+        app: ms-thumbnails
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+      - image: archiocloud/develop:ms-generate-thumbnails-v1
+        name: ms-thumbnails
+        ports:
+        - containerPort: 3028
+        env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            

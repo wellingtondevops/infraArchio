@@ -5,7 +5,7 @@ metadata:
     app: archio-main
   name: archio-main  
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: archio-main
@@ -17,11 +17,10 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      # - image: archiocloud/develop:archio-main-v4031 já na nova versao de pesquisa de volumes v4040 em testes
-      # - image: archiocloud/develop:archio-main-v4041
-      # testes exportacao
-      - image: archiocloud/develop:archio-main-v4050
-        name: archio-main        
+      # - image: archiocloud/develop:archio-main-v600087 #atual em producao
+      # - image: archiocloud/develop:archio-main-v600090 #testes
+      - image: archiocloud/develop:archio-main-v600099 #testes qadocker
+        name: archio-main       
         ports:
         - containerPort: 3000
           name: archio-main    
@@ -41,7 +40,3 @@ spec:
                  secretKeyRef: 
                   name: api-sec-archio-all
                   key: REDIS_PORT    
-
-
-
-                  # ok            

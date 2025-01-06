@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ms-general-archives
+  name: ms-general-archives
+spec:
+  type: ClusterIP
+  ports:
+  - name: "ms-general-archives"
+    port: 3049
+    targetPort: 3049
+  selector:
+    app: ms-general-archives

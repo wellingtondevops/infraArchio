@@ -17,8 +17,8 @@ spec:
       imagePullSecrets:
         - name: pullsecret
       containers:
-      # - image: archiocloud/develop:archio-archive-reduce-document-v09 para fazer amanhá
-      - image: archiocloud/develop:archio-restruct-archives-v03
+      - image: archiocloud/develop:archio-restruct-archives-v30
+      
         name: ms-restruct-archives
         ports:
         - containerPort: 3034

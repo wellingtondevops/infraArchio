@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: archio-signature
+  name: archio-signature
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: archio-sign
+  template:
+    metadata:
+      labels:
+        app: archio-sign
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:archio-sign-v3004
+          name: archio-sign
+          ports:
+          - containerPort: 1010
+            name: archio-sign
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS      
+            

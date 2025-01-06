@@ -1,0 +1,35 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ms-report-sponsor
+  name: ms-report-sponsor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ms-report-sponsor
+  template:
+    metadata:
+      labels:
+        app: ms-report-sponsor
+    spec:
+      imagePullSecrets:
+        - name: pullsecret
+      containers:
+        - image: archiocloud/develop:ms-report-sponsor-v0001
+        
+          name: ms-report-sponsor
+          env:
+            - name: RABBITMQ_CONNECTION_URL
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: RABBITMQ_CONNECTION_URL
+            - name: MONGO_ACESS
+              valueFrom:
+                 secretKeyRef: 
+                  name: api-sec-archio-all
+                  key: MONGO_ACESS   
+            
